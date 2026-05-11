@@ -9,7 +9,7 @@ __name__ = "__main__"
 directory = {
     "C:\\": {
         "Document": {"Folder": {},
-                     "File1": ("txt", "1kB", "hello world"),
+                     "File1": ("txt", "1kB", "hello world. \nThis is a file with multiple lines. \ncoding is painful"),
                      "File2": ("txt", "1kB", "goodbye world")},
         "Desktop": {"-Hidden_File": ("txt", "1kB", "Secret Code: XNA39TA")},
         "-system": {"-x64": {"-hidden_folder": {}},
@@ -36,6 +36,37 @@ def help(*args):
         print("please only use help on one command at a time")
     else:
         print(eval(f"{args[1]}.__doc__") or 'N/A')
+
+
+def cat(*args):
+    """ Output first 10 lines of a file
+        displays contents only
+    """
+    global directory, path_stack
+    direct_tree = directory
+    path = path_stack
+
+    # navigate current folder and have the target value ready
+    target_file = args[1]
+    for folder in path:
+        direct_tree = direct_tree[folder]
+
+    # if the target file is in the directory folder
+    if target_file in direct_tree:
+        item = direct_tree[target_file]
+
+        # 3. Check if it's a file (tuple) or folder (dict)
+        if isinstance(item, tuple):
+            # Print the content (index 2 of file tuple handling)
+            print(f">File: {target_file}\n")
+            content = item[2].splitlines()
+            for line in content[:10]:
+                print(line, end="\n")
+
+        elif isinstance(item, dict):
+            print(f"cat: {target_file}: Is a directory")
+    else:
+        print(f"cat: {target_file}: No such file")
 
 
 def cd(*args):
@@ -131,14 +162,14 @@ def ls(*args):
         # List with all details
         for folder in path:
             direct_tree = direct_tree[folder]
-        for Key, value in direct_tree.items():
+        for key, value in direct_tree.items():
             if isinstance(value, tuple):
                 # if FILE print details - not content.
-                print(f"{Key}\t Ext: {value[0]}\tSize: {value[1]}", end="\n")
+                print(f"{key}\t Ext: {value[0]}\tSize: {value[1]}", end="\n")
 
             else:
                 # if FOLDER, must be a dictionary, so only print the key
-                print(f"{Key}", end="\n")
+                print(f"{key}", end="\n")
     elif "-lh" in args:
         # List readable human sizes
         print("TODO")
@@ -162,6 +193,8 @@ class py_input:
             pwd()
         elif "cd" in self.args:
             cd(*self.args)
+        elif "cat" in self.args:
+            cat(*self.args)
         elif len(self.args) <= 1:
             print(end="")
         else:

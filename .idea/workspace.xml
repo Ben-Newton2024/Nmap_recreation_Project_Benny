@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c139387f-8f2d-46e3-8197-fb2705a055f3" name="Changes" comment="learning more args and dictionary stuff">
-      <change afterPath="$PROJECT_DIR$/Mini_PLinux.py" afterDir="false" />
+    <list default="true" id="c139387f-8f2d-46e3-8197-fb2705a055f3" name="Changes" comment="learning more args and dictionary stuff&#10;&#10;basic directory made, travers and listing and help commands complete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mini_PLinux.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mini_PLinux.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778262354311</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="learning more args and dictionary stuff&#10;&#10;basic directory made, travers and listing and help commands complete">
+      <option name="closed" value="true" />
+      <created>1778497686552</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1778497686552</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -83,6 +91,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="learning more args and dictionary stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="learning more args and dictionary stuff" />
+    <MESSAGE value="learning more args and dictionary stuff&#10;&#10;basic directory made, travers and listing and help commands complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="learning more args and dictionary stuff&#10;&#10;basic directory made, travers and listing and help commands complete" />
   </component>
 </project>
