@@ -192,18 +192,14 @@ def save():
     f1.close()
 
 
-def load(*args):
+def load():
     global directory
     print("loading file structure for exit")
     script_dir = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(script_dir, "plinux_save.txt")
-    print(script_dir)
-    print(file_path)
     if os.path.exists(file_path):
-        print(True)
         with open(file_path, "r") as f1:  # Note: "r" for reading"
             data = f1.read()
-            print(data)
             if data:
                 # Convert the string back into a dictionary
                 directory = ast.literal_eval(data)
@@ -242,5 +238,6 @@ class py_input:
             print(*self.args)
 
 
+print(">Please use the Load command to load your directory")
 while __name__ == "__main__":
     py_input(input(path_stack[-1] + '>').split(" "))
