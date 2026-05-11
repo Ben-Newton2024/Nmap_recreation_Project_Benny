@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c139387f-8f2d-46e3-8197-fb2705a055f3" name="Changes" comment="">
+    <list default="true" id="c139387f-8f2d-46e3-8197-fb2705a055f3" name="Changes" comment="learning more args and dictionary stuff">
+      <change afterPath="$PROJECT_DIR$/Mini_PLinux.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CLI_testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/CLI_testing.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,10 +35,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.CLI_testing.executor": "Run",
+    "Python.Mini_PLinux.executor": "Run",
     "Python.Nmap_commands.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/bened/PycharmProjects/TicTacToe_Project_Benny"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -57,6 +59,15 @@
       <option name="presentableId" value="Default" />
       <updated>1778236062116</updated>
     </task>
+    <task id="LOCAL-00001" summary="learning more args and dictionary stuff">
+      <option name="closed" value="true" />
+      <created>1778262354311</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1778262354311</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -69,5 +80,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="learning more args and dictionary stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="learning more args and dictionary stuff" />
   </component>
 </project>
