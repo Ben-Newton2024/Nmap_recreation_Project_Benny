@@ -1,5 +1,7 @@
 """ Practice to create a mini Linux like CLI with NMAP capabilities in the future
     this is to practice the use of *args and **kwargs specifically"""
+import ast
+import os.path
 
 """ File structure
     file: (extension type, size, content data, etc etc)"""
@@ -179,12 +181,51 @@ def ls(*args):
         list_recursive(direct_tree)
 
 
+def save():
+    global directory
+    print("saving file structure for exit")
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(script_dir, "plinux_save.txt")
+
+    with open(file_path, "w") as f1:
+        f1.write(str(directory))
+    f1.close()
+
+
+def load(*args):
+    global directory
+    print("loading file structure for exit")
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(script_dir, "plinux_save.txt")
+    print(script_dir)
+    print(file_path)
+    if os.path.exists(file_path):
+        print(True)
+        with open(file_path, "r") as f1:  # Note: "r" for reading"
+            data = f1.read()
+            print(data)
+            if data:
+                # Convert the string back into a dictionary
+                directory = ast.literal_eval(data)
+                print("File structure loaded successfully.")
+            else:
+                print("Save file is empty.")
+
+    else:
+        print("No save file found. Starting fresh.")
+    print(directory)
+
+
 class py_input:
     def __init__(self, *args):
         self.args = args[0]
         if "exit" in self.args or "EXIT" in self.args:
             global __name__
             __name__ = None
+        elif "save" in self.args:
+            save()
+        if "load" in self.args:
+            load()
         elif "help" in self.args:
             help(*self.args)
         elif "ls" in self.args:
