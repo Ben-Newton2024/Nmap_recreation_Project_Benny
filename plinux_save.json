@@ -1,0 +1,30 @@
+{
+    "root:\\": {
+        "-system": {
+            "-x32": {},
+            "-x64": {
+                "-hidden_folder": {}
+            }
+        },
+        "Desktop": {
+            "-Hidden_File": [
+                "txt",
+                "1kB",
+                "Secret Code: XNA39TA"
+            ]
+        },
+        "Document": {
+            "File1": [
+                "txt",
+                "20kB",
+                "This is my first successfull edit of this file.\n\nplease be carefull with me and not break the entire directory system.\nPlease and thankyou\n\nby the ohmnissiah, may the machine god will it.\nfor the flesh is weak\npurity and certainty in steel.\n\ngod i hope this works\n....\n....\n....\nThank you\nhelp"
+            ],
+            "File2": [
+                "txt",
+                "1kB",
+                "goodbye world"
+            ],
+            "Folder": {}
+        }
+    }
+}

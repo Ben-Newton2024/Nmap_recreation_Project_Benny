@@ -1,5 +1,6 @@
 import ast
 import os
+import json
 
 
 class FileSystem:
@@ -79,7 +80,7 @@ class FileSystem:
 
         if "-la" in args:
             for key, value in current.items():
-                if isinstance(value, tuple):
+                if isinstance(value, list):
                     print(f"{key}\t Ext: {value[0]}\tSize: {value[1]}")
                 else:
                     print(f"{key}/")
@@ -97,7 +98,7 @@ class FileSystem:
                     print("|\t" * (indent + 1) + "(empty folder)")
                 else:
                     self._list_recursive(value, indent + 1)
-            elif isinstance(value, tuple):
+            elif isinstance(value, list):
                 print("|\t" * (indent + 1) + f"{key}.{value[0]}")
 
     def cat(self, *args):
@@ -116,7 +117,7 @@ class FileSystem:
 
         if target in current:
             item = current[target]
-            if isinstance(item, tuple):
+            if isinstance(item, list):
                 print(f">File: {target}\n")
                 lines = item[2].splitlines()
                 for line in lines[:10]:
@@ -133,10 +134,12 @@ class FileSystem:
             Format:
             >save       :   Saves the current directory and any changes you have made to a txt file
         """
-        file_path = os.path.join(os.path.dirname(__file__), "plinux_save.txt")
+        file_path = os.path.join(os.path.dirname(__file__), "plinux_save.json")
         with open(file_path, "w") as f:
-            f.write(str(self.directory))
-        print("System saved.")
+            # indent=4 creates the 'Pretty Print' look automatically
+            # sort_keys=True is optional, but keeps your folders alphabetical
+            json.dump(self.directory, f, indent=4, sort_keys=True)
+        print("System saved to JSON.")
 
     def load(self, *args):
         """ load function,
@@ -145,16 +148,14 @@ class FileSystem:
             Format:
             >load       :   Loads the latest save of your directory to continue working
         """
-        file_path = os.path.join(os.path.dirname(__file__), "plinux_save.txt")
+        file_path = os.path.join(os.path.dirname(__file__), "plinux_save.json")
         if os.path.exists(file_path):
-            try:
-                with open(file_path, "r") as f:
-                    self.directory = ast.literal_eval(f.read())
-                # Only print if called manually by user
-                if args: print("System loaded.")
-            except Exception:
-                print("load failed, factory basic setting loaded")
-                pass  # Silently fail and use hardcoded default if file is corrupt
+            with open(file_path, "r") as f:
+                self.directory = json.load(f)
+            print("System loaded.")
+        else:
+            # Fallback if no save exists
+            print("No save found, using default structure.")
 
     def help(self, *args):
         """ Help function,
@@ -200,8 +201,8 @@ class FileSystem:
         current = self._get_current_level()
 
         if filename in current:
-            if isinstance(current[filename], tuple):
-                # Return the filename and the content (index 2 of your tuple)
+            if isinstance(current[filename], list):
+                # Return the filename and the content (index 2 of your list)
                 return filename, current[filename][2]
             else:
                 print(f"nano: {filename}: Is a directory")
@@ -227,7 +228,7 @@ class FileSystem:
         if "." in filename:
             extension = filename.split(".")[-1]
 
-        # 3. Save the tuple: (extension, size, content)
+        # 3. Save the list: (extension, size, content)
         current[filename] = (extension, size_str, new_content)
 
 
