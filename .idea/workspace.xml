@@ -7,7 +7,8 @@
     <list default="true" id="c139387f-8f2d-46e3-8197-fb2705a055f3" name="Changes" comment="learning more args and dictionary stuff&#10;&#10;basic directory made, travers and listing and help commands complete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic_CLI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Logic_CLI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mini_PLinux.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mini_PLinux.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plinux_save.txt" beforeDir="false" afterPath="$PROJECT_DIR$/plinux_save.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,19 +34,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.CLI_testing.executor": "Run",
-    "Python.Logic_CLI.executor": "Run",
-    "Python.Mini_PLinux.executor": "Run",
-    "Python.Nmap_commands.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/bened/PycharmProjects/TicTacToe_Project_Benny"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.CLI_testing.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Logic_CLI.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Mini_PLinux.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Nmap_commands.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bened/PycharmProjects/TicTacToe_Project_Benny&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.main">
     <configuration name="Logic_CLI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Nmap_recreation_Project_Benny" />
