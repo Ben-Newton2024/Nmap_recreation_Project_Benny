@@ -7,7 +7,6 @@
     <list default="true" id="c139387f-8f2d-46e3-8197-fb2705a055f3" name="Changes" comment="learning more args and dictionary stuff&#10;&#10;basic directory made, travers and listing and help commands complete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic_CLI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Logic_CLI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plinux_save.txt" beforeDir="false" afterPath="$PROJECT_DIR$/plinux_save.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

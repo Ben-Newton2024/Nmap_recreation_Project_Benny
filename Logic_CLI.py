@@ -231,6 +231,74 @@ class FileSystem:
         # 3. Save the list: (extension, size, content)
         current[filename] = (extension, size_str, new_content)
 
+    def mkdir(self, *args):
+        """ mkdir function
+            This command creates a new directory.
+
+            Format:
+            >mkdir <name>   : Creates a new empty folder
+        """
+        if len(args) < 2:
+            print("mkdir: missing operand")
+            return
+
+        new_dir = args[1]
+        current = self._get_current_level()
+
+        if new_dir in current:
+            print(f"mkdir: cannot create directory '{new_dir}': File exists")
+        else:
+            # Create the new folder as an empty dictionary
+            current[new_dir] = {}
+            print(f"Created directory: {new_dir}")
+
+    def touch(self, *args):
+        """ touch function
+            This command creates a new empty file.
+
+            Format:
+            >touch <name>   : Creates a new empty file with default metadata
+        """
+        if len(args) < 2:
+            print("touch: missing operand")
+            return
+
+        filename = args[1]
+        current = self._get_current_level()
+
+        if filename in current:
+            # In real Linux, touch updates the 'timestamp' if the file exists.
+            # For now, we can just say it exists.
+            print(f"touch: {filename} already exists.")
+            # Create the new file as an empty list
+        else:
+            # Determine extension if provided, else default to 'txt'
+            ext = filename.split(".")[-1] if "." in filename else "txt"
+
+            # Create the file with default [extension, size, content]
+            current[filename] = [ext, "0B", ""]
+            print(f"Touched file: {filename}")
+
+    def rm(self, *args):
+        """ rm function
+            This command removes a file or folder.
+
+            Format:
+            >rm <name>      : Removes the target file or folder
+        """
+        if len(args) < 2:
+            print("rm: missing operand")
+            return
+
+        target = args[1]
+        current = self._get_current_level()
+
+        if target in current:
+            del current[target]
+            print(f"Removed: {target}")
+        else:
+            print(f"rm: cannot remove '{target}': No such file or directory")
+
 
 class TerminalInterface:
     """ This is to act as the interface between the logic Class and the main.py GUI Classes"""
@@ -249,7 +317,10 @@ class TerminalInterface:
             "save": self.fs.save,
             "load": self.fs.load,
             "help": self.fs.help,
-            "nano": self.fs.nano
+            "nano": self.fs.nano,
+            "touch": self.fs.touch,
+            "mkdir": self.fs.mkdir,
+            "rm": self.fs.rm
         }
 
     def run(self):
