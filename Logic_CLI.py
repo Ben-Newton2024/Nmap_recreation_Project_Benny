@@ -11,18 +11,15 @@ class FileSystem:
 
     def __init__(self):
         # The internal data structure
+        # hard coded if factory state is needed?
         self.directory = {
-            "C:\\": {
-                "Document": {"Folder": {},
-                             "File1": (
-                                 "txt", "1kB",
-                                 "hello world. \nThis is a file with multiple lines. \ncoding is painful"),
-                             "File2": ("txt", "1kB", "goodbye world")},
-                "Desktop": {"-Hidden_File": ("txt", "1kB", "Secret Code: XNA39TA")},
-                "-system": {"-x64": {"-hidden_folder": {}}, "-x32": {}}
+            "root:\\": {
+                "Document": {},
+                "Desktop": {}
             }
         }
-        self.path_stack = ["C:\\"]
+        self.path_stack = ["root:\\"]
+        self.load()
 
     def _get_current_level(self):
         """Helper to find where we are in the dict based on path_stack"""
@@ -31,7 +28,7 @@ class FileSystem:
             current = current[folder]
         return current
 
-    def pwd(self):
+    def pwd(self, *args):
         """ pwd function
             This command is to print the working directory you are in
 
@@ -129,7 +126,7 @@ class FileSystem:
         else:
             print("File not found")
 
-    def save(self):
+    def save(self, *args):
         """ save function,
             This command is used to save the entire directory.
 
@@ -141,21 +138,23 @@ class FileSystem:
             f.write(str(self.directory))
         print("System saved.")
 
-    def load(self):
+    def load(self, *args):
         """ load function,
             This command is used to load your directory.
 
             Format:
             >load       :   Loads the latest save of your directory to continue working
         """
-        global directory
         file_path = os.path.join(os.path.dirname(__file__), "plinux_save.txt")
         if os.path.exists(file_path):
-            with open(file_path, "r") as f:
-                directory = ast.literal_eval(f.read())
-            print("System loaded.")
-        else:
-            print("No save file found.")
+            try:
+                with open(file_path, "r") as f:
+                    self.directory = ast.literal_eval(f.read())
+                # Only print if called manually by user
+                if args: print("System loaded.")
+            except Exception:
+                print("load failed, factory basic setting loaded")
+                pass  # Silently fail and use hardcoded default if file is corrupt
 
     def help(self, *args):
         """ Help function,
@@ -214,9 +213,22 @@ class FileSystem:
     def update_file(self, filename, new_content):
         """ Replaces or creates a file with new content from Nano editor. """
         current = self._get_current_level()
-        # Defaulting to .txt and auto-calculating size
-        new_size = f"{len(new_content) // 1024 + 1}kB"
-        current[filename] = ("txt", new_size, new_content)
+
+        # 1. Calculate size: len() gives bytes.
+        # We'll show bytes if small, or kB if larger.
+        bytes_size = len(new_content)
+        if bytes_size < 1024:
+            size_str = f"{bytes_size}B"
+        else:
+            size_str = f"{bytes_size // 1024}kB"
+
+        # 2. Get the extension (default to txt if it's a new file)
+        extension = "txt"
+        if "." in filename:
+            extension = filename.split(".")[-1]
+
+        # 3. Save the tuple: (extension, size, content)
+        current[filename] = (extension, size_str, new_content)
 
 
 class TerminalInterface:
@@ -255,7 +267,6 @@ class TerminalInterface:
             else:
                 print(f"Command '{cmd}' not found.")
 
-
     def execute_for_gui(self, user_input):
         """ Used for the Tkinter GUI to call commands
             it executes all commands the user inputs, through to the cli logic
@@ -278,6 +289,7 @@ class TerminalInterface:
 
         print(f"Command '{cmd}' not found.")
         return "ERROR", None
+
 
 if __name__ == "__main__":
     app = TerminalInterface()

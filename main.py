@@ -88,22 +88,31 @@ class PLinuxGUI:
 
     def start_nano(self, filename, content):
         """ Switches the console into 'Editor Mode' """
-        self.editing_file = filename  # Track what we are editing
+        self.nano_status = tk.Label(self.root, text="NANO MODE: Ctrl+S to Save", bg="blue", fg="white")
+        self.nano_status.pack(side="bottom", fill="x")
+        self.editing_file = filename
 
         # 1. Unlock the console and clear it
         self.console.config(state='normal')
         self.console.delete("1.0", tk.END)
 
-        # 2. Insert the file content and focus
+        # 2. Insert the file content
+        self.console.config(insertbackground="white")  # Makes the cursor white so it shows on black
+        self.console.config(insertofftime=500, insertontime=500)  # Sets the flashing speed (ms)
+        self.console.focus_force()  # Forces focus so the cursor starts blinking immediately
         self.console.insert(tk.END, content)
-        self.console.focus_set()
 
-        # 3. Disable the command entry box so they can't type commands while editing
+        # --- CRITICAL FIXES FOR EDITING ---
+        # Force keyboard focus to the large box
+        self.console.focus_force()
+        # Move the text cursor to the very beginning
+        self.console.mark_set("insert", "1.0")
+
+        # 3. Disable command entry
         self.entry.config(state='disabled')
 
-        # 4. Bind a "Save & Exit" key (Ctrl+S)
+        # 4. Bind save shortcut
         self.root.bind("<Control-s>", self.exit_nano)
-        print("--- NANO EDITOR --- (Press Ctrl+S to Save & Exit)")
 
     def exit_nano(self, event=None):
         """ Saves content and returns to 'Console Mode' """
@@ -115,9 +124,14 @@ class PLinuxGUI:
         self.interface.fs.update_file(self.editing_file, new_content)
 
         # 3. Reset the UI
-        self.console.delete("1.0", tk.END)
-        self.console.config(state='disabled')
-        self.entry.config(state='normal')
+        self.console.delete("1.0", tk.END)  # clears the editor screen
+        self.console.config(state='disabled')  # lock the console back up
+        # clear the entry box
+        self.entry.config(state='normal')  # re-enables the input box
+        self.entry.delete(0, tk.END)  # wipes the nano File1 from the input box
+        if hasattr(self, 'nano_status'):  # Remove the Status Bar
+            self.nano_status.destroy()
+
         self.root.unbind("<Control-s>")
 
         print(f"\nSaved {self.editing_file}. Returning to console...\n")
