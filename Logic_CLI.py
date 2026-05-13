@@ -280,11 +280,8 @@ class FileSystem:
             print(f"Touched file: {filename}")
 
     def rm(self, *args):
-        """ rm function
-            This command removes a file or folder.
-
-            Format:
-            >rm <name>      : Removes the target file or folder
+        """ rm function,
+            Removes a file.
         """
         if len(args) < 2:
             print("rm: missing operand")
@@ -294,10 +291,41 @@ class FileSystem:
         current = self._get_current_level()
 
         if target in current:
-            del current[target]
-            print(f"Removed: {target}")
+            if isinstance(current[target], list):  # Only allow deleting files
+                del current[target]
+                print(f"File removed: {target}")
+            else:
+                print(f"rm: cannot remove '{target}': Is a directory (use rmdir)")
         else:
-            print(f"rm: cannot remove '{target}': No such file or directory")
+            print(f"rm: cannot remove '{target}': No such file")
+
+    def rmdir(self, *args):
+        """ rmdir function,
+            Removes an EMPTY directory.
+
+            Format:
+            >rmdir <name>   : Removes the folder only if it contains no files/folders.
+        """
+        if len(args) < 2:
+            print("rmdir: missing operand")
+            return
+
+        target = args[1]
+        current = self._get_current_level()
+
+        if target in current:
+            # 1. Check if it's a directory (dict)
+            if isinstance(current[target], dict):
+                # 2. Check if it's empty
+                if not current[target]:
+                    del current[target]
+                    print(f"Directory removed: {target}")
+                else:
+                    print(f"rmdir: failed to remove '{target}': Directory not empty")
+            else:
+                print(f"rmdir: failed to remove '{target}': Not a directory")
+        else:
+            print(f"rmdir: failed to remove '{target}': No such directory")
 
 
 class TerminalInterface:
@@ -320,7 +348,8 @@ class TerminalInterface:
             "nano": self.fs.nano,
             "touch": self.fs.touch,
             "mkdir": self.fs.mkdir,
-            "rm": self.fs.rm
+            "rm": self.fs.rm,
+            "rm": self.fs.rmdir
         }
 
     def run(self):
