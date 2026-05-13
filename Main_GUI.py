@@ -1,6 +1,7 @@
 import tkinter as tk
 import sys
 from Logic_CLI import TerminalInterface
+from Network_CLI import NetworkEngine
 
 
 # This class "pretends" to be the terminal output
@@ -70,6 +71,11 @@ class PLinuxGUI:
         status, data = self.interface.execute_for_gui(user_text)
 
         if status == "EXIT_SIGNAL":
+            # If a server is listening, shut it down cleanly before quitting
+            if hasattr(self.interface.ne, 'listening') and self.interface.ne.listening:
+                self.interface.ne.stop_listen()
+
+            # save the directory and destroy the window
             self.interface.fs.save()
             self.root.destroy()
         elif status == "NANO_SIGNAL":

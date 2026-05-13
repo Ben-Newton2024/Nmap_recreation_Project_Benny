@@ -17,14 +17,20 @@
             "File1": [
                 "txt",
                 "20kB",
-                "This is my first successfull edit of this file.\n\nplease be carefull with me and not break the entire directory system.\nPlease and thankyou\n\nby the ohmnissiah, may the machine god will it.\nfor the flesh is weak\npurity and certainty in steel.\n\ngod i hope this works\n....\n....\n....\nThank you\nhelp"
+                "This is my first successfully edit of this file.\n\nplease be carefully with me and not break the entire directory system.\nPlease and thankyou\n\nby the ohmnissiah, may the machine god will it.\nfor the flesh is weak\npurity and certainty in steel.\n\ngod i hope this works\n....\n....\n....\nThank you\nhelp"
             ],
             "File2": [
                 "txt",
                 "1kB",
                 "goodbye world"
             ],
-            "Folder": {}
+            "File3": [
+                "txt",
+                "139B",
+                "I just realised that this doesnt sort itself in the dictionary to so the file3 doesnt appear abov folder within the print after creation..."
+            ],
+            "Folder": {},
+            "Folder1": {}
         },
         "Photos": {}
     }

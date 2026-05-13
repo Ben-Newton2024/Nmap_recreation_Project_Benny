@@ -7,6 +7,8 @@
     <list default="true" id="c139387f-8f2d-46e3-8197-fb2705a055f3" name="Changes" comment="learning more args and dictionary stuff&#10;&#10;basic directory made, travers and listing and help commands complete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic_CLI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Logic_CLI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_GUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Network_CLI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Network_CLI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plinux_save.json" beforeDir="false" afterPath="$PROJECT_DIR$/plinux_save.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,13 +47,17 @@
   "keyToString": {
     "Python.CLI_testing.executor": "Run",
     "Python.Logic_CLI.executor": "Run",
+    "Python.Main_GUI.executor": "Run",
     "Python.Mini_PLinux.executor": "Run",
+    "Python.Network_CLI.executor": "Run",
     "Python.Nmap_commands.executor": "Run",
+    "Python.Run_Main_GUI_full_program.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "Networking-in-Python-Learning",
-    "last_opened_file_path": "C:/Users/bened/PycharmProjects/TicTacToe_Project_Benny"
+    "last_opened_file_path": "C:/Users/bened/PycharmProjects/TicTacToe_Project_Benny",
+    "settings.editor.selected.configurable": "preferences.editor"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -59,8 +65,15 @@
       <recent name="C:\Users\bened\PycharmProjects\Nmap_recreation_Project_Benny\Old_Learning_micro_scripts" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
-    <configuration name="Logic_CLI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="PythonConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main_GUI" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Nmap_recreation_Project_Benny" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -73,29 +86,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Logic_CLI.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Nmap_recreation_Project_Benny" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Main_GUI.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -106,8 +97,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.Logic_CLI" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.Logic_CLI" />
         <item itemvalue="Python.main" />

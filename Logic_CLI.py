@@ -81,7 +81,7 @@ class FileSystem:
         if "-la" in args:
             for key, value in current.items():
                 if isinstance(value, list):
-                    print(f"{key}\t Ext: {value[0]}\tSize: {value[1]}")
+                    print(f"{key}\t Ext:{value[0]}\tSize:{value[1]}")
                 else:
                     print(f"{key}/")
         elif "-R" in args:
@@ -325,7 +325,10 @@ class TerminalInterface:
             "rm": self.fs.rm,
             # Networking Engine .ne.
             "nmap": self.ne.nmap,
-            "ping": self.ne.ping
+            "ping": self.ne.ping,
+            "listen": self.ne.listen,
+            "send_msg": self.ne.send_msg,
+            "stop_listen": self.ne.stop_listen
         }
 
     def run(self):
@@ -366,8 +369,3 @@ class TerminalInterface:
 
         print(f"Command '{cmd}' not found.")
         return "ERROR", None
-
-
-if __name__ == "__main__":
-    app = TerminalInterface()
-    app.run()
