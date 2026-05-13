@@ -229,7 +229,7 @@ class FileSystem:
             extension = filename.split(".")[-1]
 
         # 3. Save the list: (extension, size, content)
-        current[filename] = (extension, size_str, new_content)
+        current[filename] = [extension, size_str, new_content]
 
     def mkdir(self, *args):
         """ mkdir function
@@ -301,7 +301,7 @@ class FileSystem:
 
 
 class TerminalInterface:
-    """ This is to act as the interface between the logic Class and the main.py GUI Classes"""
+    """ This is to act as the interface between the logic Class and the Main_GUI.py GUI Classes"""
 
     def __init__(self):
         """ Initialize the command list for input from the user to use for the CLI Logic"""

@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c139387f-8f2d-46e3-8197-fb2705a055f3" name="Changes" comment="learning more args and dictionary stuff&#10;&#10;basic directory made, travers and listing and help commands complete">
-      <change afterPath="$PROJECT_DIR$/Network_CLI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logic_CLI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Logic_CLI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plinux_save.json" beforeDir="false" afterPath="$PROJECT_DIR$/plinux_save.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +54,11 @@
     "last_opened_file_path": "C:/Users/bened/PycharmProjects/TicTacToe_Project_Benny"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bened\PycharmProjects\Nmap_recreation_Project_Benny\Old_Learning_micro_scripts" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python.main">
     <configuration name="Logic_CLI" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Nmap_recreation_Project_Benny" />
